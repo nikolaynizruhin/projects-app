@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import router from './routes';
-import MyComponent from './components/MyComponent.vue';
+import NavBar from './components/NavBar.vue';
 
 Vue.use(VueRouter);
 
-Vue.component('my-component', MyComponent);
+Vue.component('nav-bar', NavBar);
 
 const app = new Vue({
   router,

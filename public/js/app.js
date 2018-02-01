@@ -2921,10 +2921,26 @@ if (inBrowser && window.Vue) {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   mounted() {
-    console.log('Component mounted.');
+    console.log('Navbar component mounted.');
   }
 });
 
@@ -2947,15 +2963,15 @@ var _routes = __webpack_require__(8);
 
 var _routes2 = _interopRequireDefault(_routes);
 
-var _MyComponent = __webpack_require__(9);
+var _NavBar = __webpack_require__(9);
 
-var _MyComponent2 = _interopRequireDefault(_MyComponent);
+var _NavBar2 = _interopRequireDefault(_NavBar);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue2.default.use(_vueRouter2.default);
 
-_vue2.default.component('my-component', _MyComponent2.default);
+_vue2.default.component('nav-bar', _NavBar2.default);
 
 var app = new _vue2.default({
   router: _routes2.default,
@@ -14063,7 +14079,9 @@ var Bar = { template: '<div>bar</div>' };
 var routes = [{ path: '/foo', component: Foo }, { path: '/bar', component: Bar }];
 
 var router = new _vueRouter2.default({
-  routes: routes
+  routes: routes,
+  linkActiveClass: 'active',
+  linkExactActiveClass: ''
 });
 
 exports.default = router;
@@ -14075,9 +14093,9 @@ exports.default = router;
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_MyComponent_vue__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_NavBar_vue__ = __webpack_require__(3);
 /* empty harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_template_compiler_index_id_data_v_261983ca_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_MyComponent_vue__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_template_compiler_index_id_data_v_046a7e32_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_NavBar_vue__ = __webpack_require__(11);
 var disposed = false
 
 /* script */
@@ -14094,14 +14112,14 @@ var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = Object(__WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_runtime_component_normalizer__["a" /* default */])(
-  __WEBPACK_IMPORTED_MODULE_1__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_MyComponent_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_template_compiler_index_id_data_v_261983ca_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_MyComponent_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_NavBar_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_template_compiler_index_id_data_v_046a7e32_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_NavBar_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/MyComponent.vue"
+Component.options.__file = "resources/assets/js/components/NavBar.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -14110,9 +14128,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-261983ca", Component.options)
+    hotAPI.createRecord("data-v-046a7e32", Component.options)
   } else {
-    hotAPI.reload("data-v-261983ca", Component.options)
+    hotAPI.reload("data-v-046a7e32", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -14242,16 +14260,76 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("My Component!")])
+  return _c(
+    "nav",
+    { staticClass: "navbar navbar-expand-lg navbar-light bg-light" },
+    [
+      _c("router-link", { staticClass: "navbar-brand", attrs: { to: "foo" } }, [
+        _vm._v("Projects App")
+      ]),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "collapse navbar-collapse",
+          attrs: { id: "navbarSupportedContent" }
+        },
+        [
+          _c(
+            "ul",
+            { staticClass: "navbar-nav mr-auto" },
+            [
+              _c(
+                "router-link",
+                { staticClass: "nav-item", attrs: { tag: "li", to: "/foo" } },
+                [_c("a", { staticClass: "nav-link" }, [_vm._v("Foo")])]
+              ),
+              _vm._v(" "),
+              _c(
+                "router-link",
+                { staticClass: "nav-item", attrs: { tag: "li", to: "/bar" } },
+                [_c("a", { staticClass: "nav-link" }, [_vm._v("Bar")])]
+              )
+            ],
+            1
+          )
+        ]
+      )
+    ],
+    1
+  )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#navbarSupportedContent",
+          "aria-controls": "navbarSupportedContent",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation"
+        }
+      },
+      [_c("span", { staticClass: "navbar-toggler-icon" })]
+    )
+  }
+]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-261983ca", esExports)
+    require("vue-hot-reload-api")      .rerender("data-v-046a7e32", esExports)
   }
 }
 
