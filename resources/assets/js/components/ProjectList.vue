@@ -43,8 +43,6 @@
         .catch(error => {
           console.log(error);
         });
-
-      console.log('Project List component mounted.')
     },
     methods: {
       remove(id) {

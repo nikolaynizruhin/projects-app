@@ -19,8 +19,6 @@
         .catch(error => {
           console.log(error);
         });
-
-      console.log('Project View component mounted.')
     }
   }
 </script>
