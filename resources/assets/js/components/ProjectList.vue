@@ -28,17 +28,14 @@
 
 <script>
   import axios from 'axios';
+  import { mapState } from 'vuex';
 
   export default {
-    data() {
-      return {
-        projects: []
-      }
-    },
+    computed: mapState(['projects']),
     mounted() {
       axios.get('/api/projects')
         .then(response => {
-          this.projects = response.data;
+          this.$store.commit('getProjects', response.data);
         })
         .catch(error => {
           console.log(error);
@@ -48,7 +45,7 @@
       remove(id) {
         axios.delete('/api/projects/' + id)
           .then(response => {
-            this.projects = this.projects.filter(project => project.id !== id);
+            this.$store.commit('removeProject', id);
           })
          .catch(error => {
             console.log(error);

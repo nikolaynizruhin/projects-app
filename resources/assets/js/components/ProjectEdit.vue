@@ -33,6 +33,7 @@
       update() {
         axios.put('/api/projects/' + this.$route.params.id, { name: this.name })
           .then(response => {
+            this.$store.commit('editProject', response.data);
             this.$router.push('/projects')
           })
          .catch(error => {

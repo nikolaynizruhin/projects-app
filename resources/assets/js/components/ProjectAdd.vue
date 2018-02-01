@@ -24,12 +24,13 @@
       add() {
         axios.post('/api/projects/', { name: this.name })
           .then(response => {
-            this.$router.push('/projects')
+            this.$store.commit('addProject', response.data);
+            this.$router.push('/projects');
           })
          .catch(error => {
             console.log(error);
           });
       }
-  }
+    }
   }
 </script>
