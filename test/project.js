@@ -23,7 +23,7 @@ describe('Projects', () => {
           .end((err, res) => {
             res.should.have.status(200);
             res.body.should.be.a('array');
-            res.body[0].name.should.eql('Project A');
+            res.body[0].should.have.property('name').eql('Project A');
             res.body.length.should.be.eql(1);
             done();
         });
@@ -41,7 +41,7 @@ describe('Projects', () => {
           .end((err, res) => {
             res.should.have.status(200);
             res.body.should.be.a('object');
-            res.body.name.should.eql('Project A');
+            res.body.should.have.property('name').eql('Project A');
             done();
         });
       });
@@ -58,7 +58,7 @@ describe('Projects', () => {
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a('object');
-          res.body.name.should.eql('Project A');
+          res.body.should.have.property('name').eql('Project A');
           done();
       });
     });
@@ -75,7 +75,7 @@ describe('Projects', () => {
           .end((err, res) => {
             res.should.have.status(200);
             res.body.should.be.a('object');
-            res.body.name.should.eql('Updated');
+            res.body.should.have.property('name').eql('Updated');
             done();
         });
       });
@@ -92,7 +92,7 @@ describe('Projects', () => {
           .end((err, res) => {
             res.should.have.status(200);
             res.body.should.be.a('object');
-            res.body.message.should.eql('success');
+            res.body.should.have.property('message').eql('success');
             done();
         });
       });
