@@ -9,4 +9,8 @@ npm start
 ```
 node seed.js
 ```
+## Test
+```
+npm test
+```
 Go to http://localhost:3000
