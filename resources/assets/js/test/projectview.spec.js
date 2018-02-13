@@ -21,7 +21,7 @@ describe('ProjectView', () => {
       }
     })
 
-    moxios.stubRequest('/api/projects/1', {
+    moxios.stubRequest('/api/projects\/\d+', {
       status: 200,
       response: {
         name: "Project Test"
@@ -29,6 +29,11 @@ describe('ProjectView', () => {
     })
 
     expect(wrapper.vm.project).toEqual({});
+
+    moxios.wait(() => {
+      expect(wrapper.vm.project.name).toBe('Project Test');
+      done()
+    });
 
     moxios.uninstall()
   });

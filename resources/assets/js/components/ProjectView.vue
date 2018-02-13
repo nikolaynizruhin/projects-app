@@ -15,7 +15,6 @@
       axios.get('/api/projects/' + this.$route.params.id)
         .then(response => {
           this.project = response.data;
-          console.log(response.data)
         })
         .catch(error => {
           console.log(error);
