@@ -12,5 +12,6 @@ node seed.js
 ## Test
 ```
 npm test
+npm run unit
 ```
 Go to http://localhost:3000
