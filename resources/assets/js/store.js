@@ -10,11 +10,7 @@ const store = {
       state.projects.push(project);
     },
     editProject (state, project) {
-      state.projects = state.projects.map((currentProject, i, projects) => {
-        if (currentProject.id === project.id) return project;
-
-        return currentProject;
-      });
+      state.projects = state.projects.map(currentProject => (currentProject.id === project.id) ? project : currentProject);
     },
     removeProject (state, id) {
       state.projects = state.projects.filter(project => project.id !== id)
